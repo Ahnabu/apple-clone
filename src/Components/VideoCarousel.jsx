@@ -82,17 +82,17 @@ const VideoCarousel = () => {
                 }
             })
             if (videoId === 0) {
-              anim.restart()
+                anim.restart()
             }
             const animUpdate = () => {
-                    anim.progress(videoRef.current[videoId].currentTime /hightlightsSlides[videoId].videoDuration)
-                }
+                anim.progress(videoRef.current[videoId].currentTime / hightlightsSlides[videoId].videoDuration)
+            }
             if (isPlaying) {
                 gsap.ticker.add(animUpdate)
             } else {
                 gsap.ticker.remove(animUpdate)
             }
-          
+
         }
     }, [videoId, startPlay, isPlaying])
     const handleProcess = (type, i) => {
@@ -128,17 +128,17 @@ const VideoCarousel = () => {
                                 <video id="video"
                                     playsInline={true}
                                     preload="auto"
+                                    autoPlay
                                     muted
-                                    className={`${
-list.id === 2 && 'translate-x-44'} pointer-events-none`}
+                                    className={`${list.id === 2 && 'translate-x-44'} pointer-events-none`}
                                     ref={(el) => (videoRef.current[i] = el)}
                                     onPlay={() => {
                                         setVideo((prevVideo) => ({
                                             ...prevVideo, isPlaying: true
                                         }))
                                     }}
-                                    onEnded={() => 
-                                       i!==3?handleProcess("video-end",i):handleProcess("video-last")
+                                    onEnded={() =>
+                                        i !== 3 ? handleProcess("video-end", i) : handleProcess("video-last")
                                     }
                                     onLoadedMetadata={(e) => handleLoadedMetadata(i, e)}
                                 >

@@ -23,7 +23,7 @@ export default [
       react,
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
-      "react-three":ReactThreeFiber 
+      "react-three":ReactThreeFiber
     },
     rules: {
       ...js.configs.recommended.rules,
